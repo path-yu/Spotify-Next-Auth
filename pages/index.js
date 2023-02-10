@@ -9,7 +9,7 @@ export default function Home() {
       method: "post",
       data: {
         code: router.query.code || null,
-        redirect_uri: router.query.redirect_uri || null,
+        redirect_uri: router.query.redirect_uri || "https://spotify-next-auth-blue.vercel.app/",
       },
     }).then((res) => {
       if (res.data.code == 400) {
