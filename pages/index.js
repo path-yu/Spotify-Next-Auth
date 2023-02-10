@@ -4,16 +4,18 @@ import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
+  let redirect_uri =
+    router.query.redirect_uri || "https://spotify-next-auth-blue.vercel.app/";
   useEffect(() => {
     axios("/api/callback", {
       method: "post",
       data: {
         code: router.query.code || null,
-        redirect_uri: router.query.redirect_uri || "https://spotify-next-auth-blue.vercel.app/",
+        redirect_uri,
       },
     }).then((res) => {
       if (res.data.code == 400) {
-        location.href = `https://accounts.spotify.com/authorize?response_type=code&client_id=ba7d6d4a56644b198aa47bb9d88cfc17&redirect_uri=${router.query.redirect_uri}`;
+        router.push("/fail");
       }
       router.push("/success", {
         query: {
