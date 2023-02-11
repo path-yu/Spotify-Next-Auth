@@ -19,7 +19,12 @@ export default function Success() {
   return (
     <div>
       <Button size="large" ref={btn} variant="text">
-        <a href={href} style={{ textDecoration: "none", color: "#1BC458" }}>
+        <a
+          target="_blank"
+          href={href}
+          style={{ textDecoration: "none", color: "#1BC458" }}
+          rel="noreferrer"
+        >
           Open in App
         </a>
       </Button>
