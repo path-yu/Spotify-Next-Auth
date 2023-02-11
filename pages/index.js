@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function Home() {
   const router = useRouter();
   let redirect_uri =
-    router.query.redirect_uri || "https://spotify-next-auth-blue.vercel.app/";
+    router.query.redirect_uri || "https://spotify-next-auth-blue.vercel.app";
   useEffect(() => {
     let search = new URLSearchParams(location.search);
     let code = search.get("code");
