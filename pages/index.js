@@ -16,6 +16,7 @@ export default function Home() {
         redirect_uri,
       },
     }).then((res) => {
+      console.log(res);
       if (res.data.code == 400) {
         router.push("/fail");
       }

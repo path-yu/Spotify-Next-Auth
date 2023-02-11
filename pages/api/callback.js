@@ -21,10 +21,6 @@ export default function handler(req, res) {
   };
 
   request.post(authOptions, (error, response, body) => {
-    if (!error && response.statusCode === 200) {
-      res.send(body);
-    } else {
-      res.send({ error: "invalid_token", code: 400 });
-    }
+    res.send(body);
   });
 }
