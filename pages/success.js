@@ -1,4 +1,4 @@
-import Button, { ButtonProps } from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import { useEffect, useRef, useState } from "react";
 
 export default function Success() {
@@ -14,13 +14,13 @@ export default function Success() {
           `/center?refresh_token=${refresh_token}&access_token=${access_token}`
       );
     }
-  }, [href]),
+  }, []),
     [];
   return (
     <div>
       <Button size="large" ref={btn} variant="text">
         <a href={href} style={{ textDecoration: "none", color: "#1BC458" }}>
-          Back App
+          Open in App
         </a>
       </Button>
     </div>

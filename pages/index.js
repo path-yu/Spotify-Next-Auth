@@ -19,12 +19,12 @@ export default function Home() {
       if (res.data.code == 400) {
         router.push("/fail");
       } else {
-        router.push("/success", {
-          query: {
-            refresh_token: res.data.refresh_token,
-            access_token: res.data.access_token,
-          },
-        });
+        console.log("跳转到成功页面!");
+        location.href =
+          location.origin +
+          `/success?refresh_token=${search.get(
+            "refresh_token"
+          )}&access_token=${search.get("access_token")}`;
       }
     });
   }, []);
