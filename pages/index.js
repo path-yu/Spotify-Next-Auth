@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-
+import CircularProgress from "@mui/material/CircularProgress";
 export default function Home() {
   const router = useRouter();
   let redirect_uri =
@@ -16,30 +16,25 @@ export default function Home() {
         redirect_uri,
       },
     }).then((res) => {
-      console.log(res);
       if (res.data.code == 400) {
         router.push("/fail");
+      } else {
+        router.push("/success", {
+          query: {
+            refresh_token: res.data.refresh_token,
+            access_token: res.data.access_token,
+          },
+        });
       }
-      router.push("/success", {
-        query: {
-          refresh_token: res.data.refresh_token,
-          access_token: res.data.access_token,
-        },
-      });
     });
   }, []);
   return (
-    <div className="spin">
-      <svg className="loading" id="loading" viewBox="22 22 44 44">
-        <circle
-          className="circle"
-          cx="44"
-          cy="44"
-          r="20.2"
-          fill="none"
-          strokeWidth="3.6"
-        ></circle>
-      </svg>
-    </div>
+    <CircularProgress
+      size={60}
+      thickness={4}
+      sx={{
+        color: "#1BC458",
+      }}
+    />
   );
 }

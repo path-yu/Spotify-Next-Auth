@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.meteor_music",
+      "sha256_cert_fingerprints": [
+        "47:16:00:DF:3E:63:CE:AF:9F:9D:94:AF:F5:BE:09:65:B3:B8:D3:E1:F9:30:A7:66:C3:E1:DF:7A:CD:93:81:03"
+      ]
+    }
+  }
+]
