@@ -6,6 +6,9 @@ import { styled } from "@mui/material/styles";
 export default function Success() {
   const btn = useRef();
   const route = useRouter();
+  useEffect(() => {
+    btn.current.click();
+  }, [route.query]);
   const handleClick = () => {
     let query = new URLSearchParams(location.search);
     let refresh_token = query.get("refresh_token");
