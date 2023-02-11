@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
   let redirect_uri =
     router.query.redirect_uri || "https://spotify-next-auth-blue.vercel.app/";
-  console.log(window.location);
+  console.log(location);
   console.log(router.query.code);
   useEffect(() => {
     axios("/api/callback", {
