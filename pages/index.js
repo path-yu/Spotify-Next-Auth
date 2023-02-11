@@ -10,8 +10,8 @@ export default function Home() {
     let search = new URLSearchParams(location.search);
     let code = search.get("code");
     axios("/api/callback", {
-      method: "post",
-      data: {
+      method: "get",
+      params: {
         code: code || null,
         redirect_uri,
       },
