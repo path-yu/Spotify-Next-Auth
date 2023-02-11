@@ -22,9 +22,7 @@ export default function Home() {
         console.log("跳转到成功页面!");
         location.href =
           location.origin +
-          `/success?refresh_token=${search.get(
-            "refresh_token"
-          )}&access_token=${search.get("access_token")}`;
+          `/success?refresh_token=${res.data.refresh_token}&access_token=${res.data.access_token}`;
       }
     });
   }, []);
