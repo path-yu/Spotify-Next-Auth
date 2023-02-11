@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import Button from "@mui/material/Button";
 import { useEffect, useRef, useState } from "react";
 
@@ -23,7 +24,6 @@ export default function Success() {
           target="_blank"
           href={href}
           style={{ textDecoration: "none", color: "#1BC458" }}
-          rel="noreferrer"
         >
           Open in App
         </a>
