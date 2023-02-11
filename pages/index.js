@@ -6,6 +6,8 @@ export default function Home() {
   const router = useRouter();
   let redirect_uri =
     router.query.redirect_uri || "https://spotify-next-auth-blue.vercel.app/";
+  console.log(window.location);
+  console.log(router.query.code);
   useEffect(() => {
     axios("/api/callback", {
       method: "post",
@@ -14,15 +16,15 @@ export default function Home() {
         redirect_uri,
       },
     }).then((res) => {
-      if (res.data.code == 400) {
-        router.push("/fail");
-      }
-      router.push("/success", {
-        query: {
-          refresh_token: res.data.refresh_token,
-          access_token: res.data.access_token,
-        },
-      });
+      // if (res.data.code == 400) {
+      //   router.push("/fail");
+      // }
+      // router.push("/success", {
+      //   query: {
+      //     refresh_token: res.data.refresh_token,
+      //     access_token: res.data.access_token,
+      //   },
+      // });
     });
   }, []);
   return (
