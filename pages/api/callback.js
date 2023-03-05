@@ -5,12 +5,14 @@ import request from "request";
 export default function handler(req, res) {
   let code = req.query.code || null;
   let redirect_uri = req.query.redirect_uri;
-  var authOptions = {
+  let scope = req.query.scope || "user-library-read user-library-modify";
+  let authOptions = {
     url: "https://accounts.spotify.com/api/token",
     form: {
       code: code,
       redirect_uri: redirect_uri,
       grant_type: "authorization_code",
+      scope: scope,
     },
     headers: {
       Authorization:

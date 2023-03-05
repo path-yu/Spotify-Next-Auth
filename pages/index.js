@@ -9,17 +9,18 @@ export default function Home() {
   useEffect(() => {
     let search = new URLSearchParams(location.search);
     let code = search.get("code");
+    let scope = search.get("scope") || "user-library-read user-library-modify";
     axios("/api/callback", {
       method: "get",
       params: {
         code: code || null,
         redirect_uri,
+        scope,
       },
     }).then((res) => {
       if (res.data.code == 400) {
         router.push("/fail");
       } else {
-        console.log("跳转到成功页面!");
         location.href =
           location.origin +
           `/success?refresh_token=${res.data.refresh_token}&access_token=${res.data.access_token}`;
