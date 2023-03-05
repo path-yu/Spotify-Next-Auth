@@ -1,3 +1,3 @@
 export default function Success() {
-  return <div></div>;
+  return <p style={{ color: "white" }}>Authorization failed </p>;
 }
