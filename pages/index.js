@@ -23,7 +23,7 @@ export default function Home() {
       } else {
         location.href =
           location.origin +
-          `/success?refresh_token=${res.data.refresh_token}&access_token=${res.data.access_token}`;
+          `/success?refresh_token=${res.data.refresh_token}&access_token=${res.data.access_token}&expires_in=${res.data.expires_in}`;
       }
     });
   }, []);

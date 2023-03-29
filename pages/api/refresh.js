@@ -23,6 +23,7 @@ export default function handler(req, res) {
       var access_token = body.access_token;
       res.send({
         access_token: access_token,
+        expires_in:body.expires_in
       });
     } else {
       res.send({ error: "invalid_token", code: 400 });

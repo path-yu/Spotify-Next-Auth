@@ -9,10 +9,11 @@ export default function Success() {
     let query = new URLSearchParams(location.search);
     let refresh_token = query.get("refresh_token");
     let access_token = query.get("access_token");
+    let  expires_in = query.get('expires_in');
     if (refresh_token && access_token) {
       setHref(
         location.origin +
-          `/center?refresh_token=${refresh_token}&access_token=${access_token}`
+          `/center?refresh_token=${refresh_token}&access_token=${access_token}&expires_in=${expires_in}`
       );
     }
   }, []),
